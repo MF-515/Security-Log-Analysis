@@ -60,3 +60,18 @@ with open("report.csv", "w", newline="") as csvfile:
         writer.writerow([ip, count])
 
 print("\nCSV report generated successfully.")
+
+
+import matplotlib.pyplot as plt
+
+ips = list(ip_counter.keys())
+attempts = list(ip_counter.values())
+
+plt.figure()
+plt.bar(ips, attempts)
+plt.title("Failed Login Attempts by IP")
+plt.xlabel("IP Address")
+plt.ylabel("Attempts")
+plt.savefig("failed_login_chart.png")
+
+print("Chart generated successfully.")
